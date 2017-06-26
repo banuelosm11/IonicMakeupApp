@@ -8,6 +8,7 @@
 </ion-header>
 
 <ion-content>
+  
   <ion-list>
     <button ion-item *ngFor="let p of products" (click)="pTapped($event, p)">
       <ion-icon [name]="p.icon" item-left></ion-icon>
@@ -17,7 +18,5 @@
       </div>
     </button>
   </ion-list>
-  <div *ngIf="selectedProduct" padding>
-    You navigated here from <b>{{selectedProduct.productName}}</b>
-  </div>
+ 
 </ion-content>

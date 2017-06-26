@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {ProductService} from '../../providers/productService';
+import {LandingPage} from '../pages';
 
 /**
  * Generated class for the AddProdPage page.
@@ -14,11 +16,47 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class AddProdPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  brand:String;
+  productName:String;
+  color:String;
+  price:number;
+  category:String;
+  repurchase:boolean;
+  usedUp:boolean;
+  purchaseDate:String;
+  expirationDate:String;
+  review:String;
+  
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, private productService:ProductService) {
+
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad AddProdPage');
+    console.log('ionViewDidLoad EditProdPage');
+  }
+
+  addProduct(){
+    // let json = JSON.stringify({id: '12345'});
+
+    var msgdata = {
+                brand: this.brand,
+                productName: this.productName,
+                color: this.color,
+                price: this.price,
+                category: this.category,
+                repurchase: this.repurchase,
+                usedUp: this.usedUp,
+                purchaseDate: this.purchaseDate,
+                expirationDate: this.expirationDate,
+                review: this.review
+            };
+            console.log(msgdata);
+    this.productService.postProduct(msgdata)
+    .subscribe(data => {
+      console.log(data);
+    });;
+    this.navCtrl.push(LandingPage);
   }
 
 }
