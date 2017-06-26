@@ -1,0 +1,71 @@
+<!--
+  Generated template for the AddProdPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>addProd</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+        <ion-item>
+            <ion-label color="secondary">Brand</ion-label>
+            <ion-input [(ngModel)]="brand"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label color="secondary">ProductName</ion-label>
+            <ion-input [(ngModel)]="productName"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label color="secondary">Color</ion-label>
+            <ion-input [(ngModel)]="color"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label color="secondary" fixed>Price</ion-label>
+            <ion-input [(ngModel)]="price"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label color="secondary" fixed>Category</ion-label>
+            <ion-input [(ngModel)]="category"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label color="secondary">Repurchase</ion-label>
+            <ion-input [(ngModel)]="repurchase"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label color="secondary">ExpirationDate</ion-label>
+            <ion-input [(ngModel)]="expirationDate"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label color="secondary">PurchaseDate</ion-label>
+            <ion-input [(ngModel)]="purchaseDate"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label color="secondary">Review</ion-label>
+            <ion-input [(ngModel)]="review"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label color="secondary">UsedUp</ion-label>
+            <ion-input [(ngModel)]="usedUp"></ion-input>
+        </ion-item>
+
+    </ion-list>
+<button ion-button round full color="secondary" (click)="addProduct()">Add Product</button>
+
+</ion-content>
