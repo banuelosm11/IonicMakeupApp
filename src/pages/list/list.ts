@@ -29,8 +29,10 @@ export class ListPage {
   }
 
   removeItem(p:any){
-    //this.productService.deleteProduct(p.id);
-   this.navCtrl.push(ListPage);
+    this.productService.deleteProduct(p.id).subscribe(data => {
+      console.log(data);
+    });
+   this.navCtrl.setRoot(ListPage);
   }
  
 }

@@ -11,10 +11,10 @@
   
   <ion-list>
 
-  <ion-item-sliding *ngFor="let p of products" (click)="pTapped($event, p)"> 
+  <ion-item-sliding *ngFor="let p of products" > 
   
 
-      <ion-item>
+      <ion-item (click)="pTapped($event, p)">
       <ion-icon [name]="p.icon" item-left></ion-icon>
       {{p.brand}}
       <div class="p-note" item-right>
