@@ -33,4 +33,10 @@ export class ProductDetailsPage {
    this.navCtrl.push(EditProdPage, {p});
   }
 
+  removeItem(){
+    this.productService.deleteProduct(this.selectedProduct.id).subscribe(data => {
+      console.log(data);
+    });
+  }
+
 }

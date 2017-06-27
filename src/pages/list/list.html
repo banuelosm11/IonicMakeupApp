@@ -10,13 +10,24 @@
 <ion-content>
   
   <ion-list>
-    <button ion-item *ngFor="let p of products" (click)="pTapped($event, p)">
+
+  <ion-item-sliding *ngFor="let p of products" (click)="pTapped($event, p)"> 
+  
+
+      <ion-item>
       <ion-icon [name]="p.icon" item-left></ion-icon>
       {{p.brand}}
       <div class="p-note" item-right>
         {{p.productName}}
       </div>
-    </button>
+     </ion-item>
+    
+    <ion-item-options>
+      <button danger (click)="removeItem(p)"> Delete</button>
+    </ion-item-options>
+
+ </ion-item-sliding>
+
   </ion-list>
  
 </ion-content>

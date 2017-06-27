@@ -25,8 +25,12 @@ export class ListPage {
   }
 
   pTapped(event, p:any) {
-    // That's right, we're pushing to ourselves!
     this.navCtrl.push(ProductDetailsPage, {p});
+  }
+
+  removeItem(p:any){
+    //this.productService.deleteProduct(p.id);
+   this.navCtrl.push(ListPage);
   }
  
 }

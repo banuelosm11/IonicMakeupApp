@@ -32,4 +32,8 @@ export class ProductService{
         headers.append('Content-Type', 'application/json');
         return this._http.post(`${this.urlforSpring}/products/post`, json, { headers: headers });
     }
+
+    deleteProduct(id:any): Observable<any> {
+        return this._http.delete(`${this.urlforSpring}/products/${id}`);
+    }
 }
