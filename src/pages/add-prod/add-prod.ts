@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {ProductService} from '../../providers/productService';
 import {LandingPage} from '../pages';
+import { Camera, CameraOptions } from '@ionic-native/camera';
 
 /**
  * Generated class for the AddProdPage page.
@@ -13,6 +14,7 @@ import {LandingPage} from '../pages';
 @Component({
   selector: 'page-add-prod',
   templateUrl: 'add-prod.html',
+  providers: [Camera]
 })
 export class AddProdPage {
 
@@ -26,15 +28,54 @@ export class AddProdPage {
   purchaseDate:String;
   expirationDate:String;
   review:String;
+
+ base64Image: String;
+
   
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private productService:ProductService) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private productService:ProductService,
+  private camera:Camera) {
 
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad EditProdPage');
   }
+
+  takePicture(){
+
+  const optionsForTaking: CameraOptions = {
+  quality: 100,
+  destinationType: this.camera.DestinationType.DATA_URL,
+  encodingType: this.camera.EncodingType.JPEG,
+  mediaType: this.camera.MediaType.PICTURE,
+  targetWidth: 1000,
+  targetHeight: 1000,
+  }
+
+this.camera.getPicture(optionsForTaking).then((imageData) => {
+ // imageData is either a base64 encoded string or a file URI
+ // If it's base64:
+ this.base64Image = 'data:image/jpeg;base64,' + imageData;
+}, (err) => {
+  alert("An error occurred: " + err);
+ // Handle error
+});
+
+}
+
+selectPicture(){
+  const optionsForSelecting: CameraOptions = {
+  destinationType: this.camera.DestinationType.FILE_URI,
+  sourceType: this.camera.PictureSourceType.PHOTOLIBRARY
+}
+
+this.camera.getPicture(optionsForSelecting).then(function (imageUri){
+  this.base64Image = imageUri;
+}, (err) => {
+  alert("An error occurred: " + err);
+});
+}
 
   addProduct(){
     // let json = JSON.stringify({id: '12345'});

@@ -1,4 +1,4 @@
-import { Http, Response, Headers } from '@angular/http';
+import { Http, Response, Headers, URLSearchParams } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs/Observable';
 import { Injectable } from '@angular/core';
@@ -36,4 +36,14 @@ export class ProductService{
     deleteProduct(id:any): Observable<any> {
         return this._http.delete(`${this.urlforSpring}/products/${id}`);
     }
+
+    inventoryQuery(currentOrEmpties:any, timeframes:any){
+        let params = new URLSearchParams();
+        params.set('currentOrEmpty', currentOrEmpties);
+        params.set('timeframe', timeframes);
+
+        return this._http.get(`${this.urlforSpring}/inventoryList/compute`, {search: params})
+        .map(response => response.json());
+    }
+
 }

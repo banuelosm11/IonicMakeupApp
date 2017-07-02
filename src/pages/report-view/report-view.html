@@ -1,0 +1,28 @@
+<!--
+  Generated template for the ReportViewPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>reportView</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding *ngIf="report">
+
+  {{report.totalProducts}}
+  {{report.totalPrice}}
+
+{{report.categories["0"].catPrice}}
+{{report.categories["0"].catQuantity}}
+{{report.categories["0"].categoryType}}
+
+     
+   
+
+</ion-content>

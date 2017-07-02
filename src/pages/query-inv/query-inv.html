@@ -18,4 +18,26 @@
 
 <ion-content padding>
 
+  <label class = "item item-input item-select">
+   <div class = "input-label">
+      Select
+   </div>
+
+    <option label="CurrentOrEmpty">Select Current or Empties</option>
+    <select [(ngModel)]="currentOrEmpty">
+      <option selected value="current">Current</option>
+      <option value="empties">UsedUp</option>
+   </select>
+
+   <option label="Timeframe">Select Timeframe</option>
+   <select [(ngModel)]="timeframe">
+      <option selected value="year">This Year</option>
+      <option value="month">This Month</option>
+      <option value="forever">All Time</option>
+   </select>
+
+</label>
+
+<button ion-button round full color="secondary"  (click)="createReport()"> Create Inventory Report</button>
+
 </ion-content>

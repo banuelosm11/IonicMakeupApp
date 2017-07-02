@@ -68,4 +68,12 @@
     </ion-list>
 <button ion-button round full color="secondary" (click)="addProduct()">Add Product</button>
 
+<button ion-button round full color="secondary" (click)="takePicture()">Take Picture</button>
+
+<button ion-button round full color="secondary" (click)="selectPicture()">Select Picture</button>
+
+Latest Picture:
+<ion-card-content>
+      <img [src]="base64Image" *ngIf="base64Image" /> 
+</ion-card-content>
 </ion-content>

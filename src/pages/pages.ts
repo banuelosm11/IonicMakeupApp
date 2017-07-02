@@ -8,3 +8,4 @@ export * from './inv-report/inv-report';
 export * from './signup/signup';
 export * from './edit-prod/edit-prod';
 export * from './add-prod/add-prod';
+export * from './report-view/report-view';
