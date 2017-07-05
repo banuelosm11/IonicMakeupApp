@@ -3,6 +3,8 @@ import { HttpModule } from '@angular/http';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { Camera } from '@ionic-native/camera';
+import { CloudSettings, CloudModule } from '@ionic/cloud-angular';
+import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 import { MyApp } from './app.component';
 import {HomePage, ListPage, LandingPage, InvReportPage, QueryInvPage, UserProfilePage, ProductDetailsPage, SignupPage, AddProdPage, EditProdPage, ReportViewPage} from '../pages/pages';
@@ -10,6 +12,12 @@ import {ProductService} from '../providers/productService';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+
+const cloudSettings: CloudSettings = {
+  'core': {
+    'app_id': 'd8fbba85'
+  }
+};
 
 
 @NgModule({
@@ -31,6 +39,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     BrowserModule,
     HttpModule,
     IonicModule.forRoot(MyApp),
+    CloudModule.forRoot(cloudSettings)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -52,7 +61,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ProductService,
-    Camera
+    Camera,
+    InAppBrowser
   ]
 })
 export class AppModule {}

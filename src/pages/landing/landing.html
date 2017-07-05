@@ -17,6 +17,12 @@
 
 
 <ion-content padding>
+  Name: {{fullname}}
+
+  <ion-card-content>
+      pic:<img [src]="pic" *ngIf="pic"/> 
+ </ion-card-content>
+
 
   <button ion-button round full color="secondary" (click)="goToListPage()">Browse My Collection</button>
   <button ion-button round full color="secondary" (click)="goToAddProdPage()">Add Products</button>

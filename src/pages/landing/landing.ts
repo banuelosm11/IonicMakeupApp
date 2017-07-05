@@ -15,8 +15,13 @@ import { ListPage, ProductDetailsPage, QueryInvPage, AddProdPage  } from '../pag
   templateUrl: 'landing.html',
 })
 export class LandingPage {
+//this and aparams in constructors
+  fullname:any;
+  pic:any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.fullname = navParams.get('first');
+  this.pic = navParams.get('second');
   }
 
   ionViewDidLoad() {

@@ -29,7 +29,7 @@ export class AddProdPage {
   expirationDate:String;
   review:String;
 
- base64Image: String;
+ base64Image: String = "http://www.pngmart.com/files/1/Lipstick-Kiss-PNG-Image.png";
 
   
 
@@ -57,6 +57,7 @@ this.camera.getPicture(optionsForTaking).then((imageData) => {
  // imageData is either a base64 encoded string or a file URI
  // If it's base64:
  this.base64Image = 'data:image/jpeg;base64,' + imageData;
+ console.log(imageData);
 }, (err) => {
   alert("An error occurred: " + err);
  // Handle error
@@ -72,6 +73,7 @@ selectPicture(){
 
 this.camera.getPicture(optionsForSelecting).then(function (imageUri){
   this.base64Image = imageUri;
+  console.log(imageUri);
 }, (err) => {
   alert("An error occurred: " + err);
 });
