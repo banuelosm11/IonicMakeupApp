@@ -7,6 +7,9 @@
 <ion-header>
 
   <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button> 
     <ion-title>editProd</ion-title>
   </ion-navbar>
 
@@ -18,52 +21,52 @@
   <ion-list>
         <ion-item>
             <ion-label color="secondary">Brand</ion-label>
-            <ion-input placeholder={{selectedProduct.brand}} [(ngModel)]="brand"></ion-input>
+            <ion-input [(ngModel)]="selectedProduct.brand"></ion-input>
         </ion-item>
 
         <ion-item>
             <ion-label color="secondary">ProductName</ion-label>
-            <ion-input placeholder={{selectedProduct.productName}} [(ngModel)]="productName"></ion-input>
+            <ion-input [(ngModel)]="selectedProduct.productName"></ion-input>
         </ion-item>
 
         <ion-item>
             <ion-label color="secondary">Color</ion-label>
-            <ion-input placeholder={{selectedProduct.color}} [(ngModel)]="color"></ion-input>
+            <ion-input [(ngModel)]="selectedProduct.color"></ion-input>
         </ion-item>
 
         <ion-item>
             <ion-label color="secondary" fixed>Price</ion-label>
-            <ion-input placeholder={{selectedProduct.price}} [(ngModel)]="price"></ion-input>
+            <ion-input [(ngModel)]="selectedProduct.price"></ion-input>
         </ion-item>
 
         <ion-item>
             <ion-label color="secondary" fixed>Category</ion-label>
-            <ion-input placeholder={{selectedProduct.category}} [(ngModel)]="category"></ion-input>
+            <ion-input [(ngModel)]="selectedProduct.category"></ion-input>
         </ion-item>
 
         <ion-item>
             <ion-label color="secondary">Repurchase</ion-label>
-            <ion-input placeholder={{selectedProduct.repurchase}} [(ngModel)]="repurchase"></ion-input>
+            <ion-input [(ngModel)]="selectedProduct.repurchase"></ion-input>
         </ion-item>
 
         <ion-item>
             <ion-label color="secondary">ExpirationDate</ion-label>
-            <ion-input placeholder={{selectedProduct.expirationDate}} [(ngModel)]="expirationDate"></ion-input>
+            <ion-input [(ngModel)]="selectedProduct.expirationDate"></ion-input>
         </ion-item>
 
         <ion-item>
             <ion-label color="secondary">PurchaseDate</ion-label>
-            <ion-input placeholder={{selectedProduct.purchaseDate}} [(ngModel)]="purchaseDate"></ion-input>
+            <ion-input [(ngModel)]="selectedProduct.purchaseDate"></ion-input>
         </ion-item>
 
         <ion-item>
             <ion-label color="secondary">Review</ion-label>
-            <ion-input placeholder={{selectedProduct.review}} [(ngModel)]="review"></ion-input>
+            <ion-input [(ngModel)]="selectedProduct.review"></ion-input>
         </ion-item>
 
         <ion-item>
             <ion-label color="secondary">UsedUp</ion-label>
-            <ion-input placeholder={{selectedProduct.usedUp}} [(ngModel)]="usedUp"></ion-input>
+            <ion-input [(ngModel)]="selectedProduct.usedUP"></ion-input>
         </ion-item>
 
     </ion-list>

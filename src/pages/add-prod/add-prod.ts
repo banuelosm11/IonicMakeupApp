@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import {ProductService} from '../../providers/productService';
 import {LandingPage} from '../pages';
 import { Camera, CameraOptions } from '@ionic-native/camera';
@@ -18,11 +18,11 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
 })
 export class AddProdPage {
 
-  brand:String;
-  productName:String;
-  color:String;
-  price:number;
-  category:String;
+  brand:String = "";
+  productName:String = "";
+  color:String = "";
+  price:number = 0;
+  category:String = "";
   repurchase:boolean;
   usedUp:boolean;
   purchaseDate:String;
@@ -34,7 +34,7 @@ export class AddProdPage {
   
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private productService:ProductService,
-  private camera:Camera) {
+  private camera:Camera, private alertCtrl:AlertController) {
 
   }
 
@@ -81,7 +81,20 @@ this.camera.getPicture(optionsForSelecting).then(function (imageUri){
 
   addProduct(){
     // let json = JSON.stringify({id: '12345'});
-
+ if (  this.brand === ""
+      || this.productName === ""
+      || this.color === ""
+      || this.price === 0
+      || this.category === ""
+    ){
+      let alert = this.alertCtrl.create({
+        title: 'Missing Required Information', 
+        subTitle: 'Please fill out all required (*) fields.', 
+        buttons: ['OK']
+      });
+      alert.present();
+   }
+   else {    
     var msgdata = {
                 brand: this.brand,
                 productName: this.productName,
@@ -101,5 +114,5 @@ this.camera.getPicture(optionsForSelecting).then(function (imageUri){
     });;
     this.navCtrl.push(LandingPage);
   }
-
+  }
 }

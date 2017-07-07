@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import {ProductService} from '../../providers/productService';
 import {ProductDetailsPage} from '../pages';
 
@@ -18,19 +18,7 @@ export class EditProdPage {
   selectedProduct:any;
   productDetails:any;
 
-  brand:String;
-  productName:String;
-  color:String;
-  price:number;
-  category:String;
-  repurchase:boolean;
-  usedUp:boolean;
-  purchaseDate:String;
-  expirationDate:String;
-  review:String;
-  
-
-  constructor(public navCtrl: NavController, public navParams: NavParams, private productService:ProductService) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private productService:ProductService, private alertCtrl:AlertController) {
     this.selectedProduct = navParams.get('p');
 
     productService.getProductDetails(this.selectedProduct.id).subscribe(data => {
@@ -43,27 +31,12 @@ export class EditProdPage {
   }
 
   onSubmit(event, p:any){
-    // let json = JSON.stringify({id: '12345'});
-
-    var msgdata = {
-                id : this.selectedProduct.id,
-                brand: this.brand,
-                productName: this.productName,
-                color: this.color,
-                price: this.price,
-                category: this.category,
-                repurchase: this.repurchase,
-                usedUp: this.usedUp,
-                purchaseDate: this.purchaseDate,
-                expirationDate: this.expirationDate,
-                review: this.review
-            };
-            console.log(msgdata);
-    this.productService.putProductEdits(msgdata)
+            console.log(this.selectedProduct);
+    this.productService.putProductEdits(this.selectedProduct)
     .subscribe(data => {
       console.log(data);
     });;
     this.navCtrl.push(ProductDetailsPage, {p});
   }
-
+ 
 }

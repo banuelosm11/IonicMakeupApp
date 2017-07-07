@@ -30,7 +30,7 @@ export class ProductDetailsPage {
   }
 
   goEditProdPage(event, p:any){
-   this.navCtrl.push(EditProdPage, {p});
+   this.navCtrl.setRoot(EditProdPage, {p});
   }
 
   removeItem(){
